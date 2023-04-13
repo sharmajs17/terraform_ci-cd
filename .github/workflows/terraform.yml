@@ -91,3 +91,6 @@ jobs:
     - name: Terraform Apply
 #      if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply -auto-approve 
+    - name: Download Key
+       env:
+       run: aws s3 cp s3://qwerty12345asdfg/key.pem /home/key.pem
