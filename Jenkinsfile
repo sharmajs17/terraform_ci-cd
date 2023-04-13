@@ -4,25 +4,25 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                sh "cd ~ && terraform -chdir=/terraform-EC2 init"
+                sh "cd ~ && terraform -chdir=/terraform_ci-cd init"
             }
         }
         
         stage('Terraform Plan') {
             steps {
-                sh "cd ~ && terraform -chdir=/terraform-EC2 plan -lock=false"
+                sh "cd ~ && terraform -chdir=/terraform_ci-cd plan -lock=false"
             }
         }
         
         stage('Terraform Validate') {
             steps {
-                sh "cd ~ && terraform -chdir=/terraform-EC2 validate"
+                sh "cd ~ && terraform -chdir=/terraform_ci-cd validate"
             }
         }
         
         stage('Terraform Apply') {
             steps {
-                sh "cd ~ && terraform -chdir=/terraform-EC2 apply -auto-approve -lock=false"
+                sh "cd ~ && terraform -chdir=/terraform_ci-cd apply -auto-approve -lock=false"
             }
         }
         
