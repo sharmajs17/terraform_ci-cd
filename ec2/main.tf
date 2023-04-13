@@ -10,7 +10,7 @@ resource "aws_key_pair" "key_pair" {
   public_key = tls_private_key.key.public_key_openssh
 
   provisioner "local-exec" {
-    command = "echo '${tls_private_key.key.private_key_pem}' > ./key.pem"
+    command = "echo '${tls_private_key.key.private_key_pem}' > ./home/root375/terraform-EC2/key.pem"
   }
 }
 
