@@ -49,6 +49,11 @@ on:
     branches: [ "main" ]
   pull_request:
 
+env:
+  AWS_ACCESS_KEY_ID: AKIARLZMBU6VA3D6AVJZ
+  AWS_SECRET_ACCESS_KEY: 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
+  AWS_DEFAULT_REGION: us-east-1
+
 permissions:
   contents: read
 
@@ -93,11 +98,11 @@ jobs:
       run: terraform apply -auto-approve 
     
     - name: Install AWS CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3-pip
-          pip3 install awscli
+      run: | 
+         sudo apt-get update
+         sudo apt-get install -y python3-pip
+         pip3 install awscli
     
     - name: Download Key
-       env:
+      env:
        run: aws s3 cp s3://qwerty12345asdfg/key.pem /home/key.pem
