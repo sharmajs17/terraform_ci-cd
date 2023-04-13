@@ -24,7 +24,7 @@ resource "aws_key_pair" "key_pair" {
 # Create a EC2 Instance (Ubuntu 20)
 resource "aws_instance" "example" {
   instance_type          = "t2.micro" # free instance
-  ami                    = "ami-0aa2b7722dc1b5612"
+  ami                    = "ami-007855ac798b5175e"
   key_name               = aws_key_pair.key_pair.id
   vpc_security_group_ids = [var.public_sg]
   subnet_id              = var.public_subnet
