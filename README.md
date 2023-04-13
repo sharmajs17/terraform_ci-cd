@@ -2,6 +2,6 @@
 
 terraform ci/cd with github
 
-          vs
+          AND
 
 terraform ci/cd with jenkins
