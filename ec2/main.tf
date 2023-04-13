@@ -8,17 +8,18 @@ resource "tls_private_key" "key" {
 resource "aws_key_pair" "key_pair" {
   key_name   = "key"
   public_key = tls_private_key.key.public_key_openssh
-}
-#  provisioner "local-exec" {
-#    command = "echo '${tls_private_key.key.private_key_pem}' > ./key.pem"
-#  }
-#}
 
-resource "aws_s3_bucket_object" "private_key" {
-  bucket = "qwerty12345asdfg"
-  key    = "key.pem"
-  content = tls_private_key.key.private_key_pem
+  provisioner "local-exec" {
+    command = "echo '${tls_private_key.key.private_key_pem}' > ./key.pem"
+  }
 }
+
+
+#resource "aws_s3_bucket_object" "private_key" {
+#  bucket = "qwerty12345asdfg"
+#  key    = "key.pem"
+#  content = tls_private_key.key.private_key_pem
+#}
 
 # Create a EC2 Instance (Ubuntu 20)
 resource "aws_instance" "example" {
