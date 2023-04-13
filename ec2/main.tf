@@ -1,24 +1,26 @@
 # Get Availability Zones
-#resource "tls_private_key" "key" {
- # algorithm = "RSA"
- # rsa_bits  = 4096
-#}
+resource "tls_private_key" "key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_s3_bucket_object" "private_key" {
+  bucket = "qwerty12345asdfg"
+  key    = "key.pem"
+  content = tls_private_key.key.private_key_pem
+} 
 
 # Generate a Private Key and encode it as PEM.
 resource "aws_key_pair" "key_pair" {
   key_name   = "key"
-#  public_key = tls_private_key.key.public_key_openssh
+   public_key = tls_private_key.key.public_key_openssh
 
 #  provisioner "local-exec" {
 #    command = "echo '${tls_private_key.key.private_key_pem}' > ./terraform_ci-cd/key.pem"
 #  }
 }
 
-resource "aws_s3_bucket_object" "private_key" {
-  bucket = "qwerty12345asdfg"
-  key    = "key.pem"
-#  content = tls_private_key.key.private_key_pem
-}
+
 
 # Create a EC2 Instance (Ubuntu 20)
 resource "aws_instance" "example" {
