@@ -91,6 +91,13 @@ jobs:
     - name: Terraform Apply
 #      if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply -auto-approve 
+    
+    - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          pip3 install awscli
+    
     - name: Download Key
        env:
        run: aws s3 cp s3://qwerty12345asdfg/key.pem /home/key.pem
