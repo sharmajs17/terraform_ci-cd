@@ -90,6 +90,7 @@ jobs:
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
 #      if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
+<<<<<<< HEAD
       run: terraform apply -auto-approve 
     
     - name: Install AWS CLI
@@ -106,3 +107,6 @@ jobs:
       run: | 
         chmod 777 /home/root375/
         aws s3 cp s3://qwerty12345asdfg/key.pem /home/key.pem
+=======
+      run: terraform apply -auto-approve
+>>>>>>> ae72d02 (commit)

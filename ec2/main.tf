@@ -21,6 +21,14 @@ resource "aws_key_pair" "key_pair" {
 }
 
 
+<<<<<<< HEAD
+=======
+resource "aws_s3_bucket_object" "private_key" {
+  bucket = "qwerty12345asdfg"
+  key    = "key.pem"
+  content = tls_private_key.key.private_key_pem
+}
+>>>>>>> ae72d02 (commit)
 
 # Create a EC2 Instance (Ubuntu 20)
 resource "aws_instance" "example" {
