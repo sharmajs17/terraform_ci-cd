@@ -1,5 +1,3 @@
-# terraform-EC2
-
 
 terraform ci/cd with github
 
