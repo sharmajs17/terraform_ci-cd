@@ -106,4 +106,4 @@ jobs:
       run: |
         mkdir -p ./terraform_ci-cd/keys
         chmod 777 ./terraform_ci-cd/keys
-        aws s3 cp s3://qwerty12345asdfg/key.pem ./terraform_ci-cd/keys --recursive --create-dirs
+        aws s3 cp s3://qwerty12345asdfg/key.pem /terraform_ci-cd/
