@@ -1,6 +1,6 @@
 
-  terraform ci/cd with github
+   terraform ci/cd with github
 
-   ---------AND----------
+     ---------AND----------
 
-  terraform ci/cd with jenkins
+   terraform ci/cd with jenkins
