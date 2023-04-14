@@ -89,24 +89,20 @@ jobs:
       # On push to "main", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
-#      if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
-<<<<<<< HEAD
-      run: terraform apply -auto-approve 
-    
+#      if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'<<<<<<< HEAD
+      run: terraform apply -auto-approve
+
     - name: Install AWS CLI
-      run: | 
+      run: |
          sudo apt-get update
          sudo apt-get install -y python3-pip
          pip3 install awscli
-    
+
     - name: Download Key
       env:
         AWS_ACCESS_KEY_ID: AKIARLZMBU6VA3D6AVJZ
         AWS_SECRET_ACCESS_KEY: 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
         AWS_DEFAULT_REGION: us-east-1
-      run: | 
-        chmod 777 /home/root375/
+      run: |
+        chmod 777 /home/
         aws s3 cp s3://qwerty12345asdfg/key.pem /home/key.pem
-=======
-      run: terraform apply -auto-approve
->>>>>>> ae72d02 (commit)
