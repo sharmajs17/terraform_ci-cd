@@ -104,5 +104,6 @@ jobs:
         AWS_SECRET_ACCESS_KEY: mWxUVYXMqdAA1EZ8LPUIz3ONUzOrGt6yjNjQtdfg
         AWS_DEFAULT_REGION: us-east-1
       run: |
-        chmod 777 /terraform_ci-cd
-        aws s3 cp s3://qwerty12345asdfg/key.pem /terraform_ci-cd/
+        mkdir -p ./terraform_ci-cd/keys
+        chmod 777 ./terraform_ci-cd/keys
+        aws s3 cp s3://qwerty12345asdfg/key.pem ./terraform_ci-cd/keys --recursive --create-dirs
