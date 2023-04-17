@@ -108,10 +108,10 @@ jobs:
           aws s3 cp s3://qwerty12345asdfg/key.pem ./terraform_ci-cd/
 
     - name: Copy key.pem to local machine
-        uses: actions/upload-artifact@v2
-        with:
-          name: key.pem
-          path: ./terraform_ci-cd/key/key.pem
+      uses: actions/upload-artifact@v2
+      with:
+        name: key.pem
+        path: ./terraform_ci-cd/key/key.pem
  #   - name: Download Key
  #     env:
 #        AWS_ACCESS_KEY_ID: AKIARLZMBU6VA3D6AVJZ
