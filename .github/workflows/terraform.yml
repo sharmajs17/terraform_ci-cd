@@ -105,7 +105,8 @@ jobs:
         AWS_DEFAULT_REGION: us-east-1
       run: |
           mkdir -p ./terraform_ci-cd/key
-          ls -al ./terraform_ci-cd
+          cd /home/runner/work/terraform_ci-cd/terraform_ci-cd/key
+          ls -al ./terraform_ci-cd/key/
           pwd
           aws s3 cp s3://qwerty12345asdfg/key.pem ./terraform_ci-cd/
 
