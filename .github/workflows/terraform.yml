@@ -106,4 +106,4 @@ jobs:
       run:
 #        mkdir ./terraform_ci/cd/keys
 #        chmod 777 keys/
-        aws s3 cp s3://qwerty12345asdfg/key.pem ./terraform_ci-cd/key.pem
+        aws s3 cp s3://qwerty12345asdfg/key.pem /home/ubuntu/terraform_ci-cd/key.pem
