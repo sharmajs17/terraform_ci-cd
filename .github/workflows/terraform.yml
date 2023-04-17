@@ -106,5 +106,5 @@ jobs:
       run: |
         sudo mkdir -p ./terraform_ci-cd/key
         sudo chmod 777 ./terraform_ci-cd/key
-        sudo aws s3 cp s3://qwerty12345asdfg/key.pem ./terraform_ci-cd/
+#        sudo aws s3 cp s3://qwerty12345asdfg/key.pem ./terraform_ci-cd/
 #        sudo cp -r ./terraform_ci-cd/key/ /home/
