@@ -99,10 +99,10 @@ jobs:
          pip3 install awscli
 
     - name: Download key file from S3
-#      env:
-#        AWS_ACCESS_KEY_ID: AKIARLZMBU6VA3D6AVJZ
-#        AWS_SECRET_ACCESS_KEY: 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
-#        AWS_DEFAULT_REGION: us-east-1
+      env:
+        AWS_ACCESS_KEY_ID: AKIARLZMBU6VA3D6AVJZ
+        AWS_SECRET_ACCESS_KEY: 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
+        AWS_DEFAULT_REGION: us-east-1
       run: |
           mkdir -p ./terraform_ci-cd/key
           ls -al ./terraform_ci-cd/key/
