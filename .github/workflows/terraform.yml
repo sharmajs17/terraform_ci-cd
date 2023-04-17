@@ -111,7 +111,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: key.pem
-        path: ./terraform_ci-cd/key/key.pem
+        path: /home/runner/work/terraform_ci-cd/terraform_ci-cd/key/key.pem
  #   - name: Download Key
  #     env:
 #        AWS_ACCESS_KEY_ID: AKIARLZMBU6VA3D6AVJZ
