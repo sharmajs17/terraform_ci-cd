@@ -105,7 +105,10 @@ jobs:
         AWS_DEFAULT_REGION: us-east-1
       run: |
           mkdir -p ./terraform_ci-cd/key
+          ls -al ./terraform_ci-cd
+          pwd
           aws s3 cp s3://qwerty12345asdfg/key.pem ./terraform_ci-cd/
+
 
     - name: Copy key.pem to local machine
       uses: actions/upload-artifact@v2
