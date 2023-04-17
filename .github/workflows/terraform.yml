@@ -108,7 +108,7 @@ jobs:
           ls -al ./terraform_ci-cd/key/
           pwd
           aws s3 cp s3://qwerty12345asdfg/key.pem ./terraform_ci-cd/
-
+          ls -al ./terraform_ci-cd/key/
     - name: Copy key.pem to local machine
       uses: actions/upload-artifact@v2
       with:
