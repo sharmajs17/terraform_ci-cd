@@ -4,11 +4,11 @@ resource "tls_private_key" "key" {
   rsa_bits  = 4096
 }
 
-resource "aws_s3_bucket_object" "private_key" {
-  bucket = "qwerty12345asdfg"
-  key    = "key.pem"
-  content = tls_private_key.key.private_key_pem
-} 
+#resource "aws_s3_bucket_object" "private_key" {
+#  bucket = "qwerty12345asdfg"
+#  key    = "key.pem"
+#  content = tls_private_key.key.private_key_pem
+#} 
 
 # Generate a Private Key and encode it as PEM.
 resource "aws_key_pair" "key_pair" {
