@@ -97,20 +97,20 @@ jobs:
 #      if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'<<<<<<< HEAD
       run: terraform apply -auto-approve
 
-     - name: Copy key.pem
-       uses: actions/upload-artifact@v2
-       with:
-         name: key
-         path: ./key.pem
+    - name: Copy key.pem
+      uses: actions/upload-artifact@v2
+      with:
+        name: key
+        path: ./key.pem
 
-     - name: Download key.pem
-       uses: actions/download-artifact@v2
-       with:
-         name: key
-         path: .
+    - name: Download key.pem
+      uses: actions/download-artifact@v2
+      with:
+        name: key
+        path: .
 
-     - name: Move key.pem
-       run: mv key.pem /home/ubuntu/terraform_ci-cd/
+    - name: Move key.pem
+      run: mv key.pem /home/ubuntu/terraform_ci-cd/
 
 
 #    - name: Copy key.pem to local machine
