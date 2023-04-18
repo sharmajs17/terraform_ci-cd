@@ -78,19 +78,6 @@ jobs:
       with:
         terraform_version: 1.1.4
 
-    - name: Create SSH Key Directory
-      run: |
-        sudo mkdir -p ./terraform_ci-cd/key
-        sudo chmod 777 ./terraform_ci-cd/key
-
-    - name: Download SSH Key
-      uses: aws-actions/configure-aws-cli@v1
-      with:
-        aws-access-key-id: AKIARLZMBU6VA3D6AVJZ
-        aws-secret-access-key: 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
-        aws-region: us-east-1
-      run: |
-        aws s3 cp s3://qwerty12345asdfg/key.pem ./terraform_ci-cd/key/
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
@@ -110,11 +97,21 @@ jobs:
 #      if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'<<<<<<< HEAD
       run: terraform apply -auto-approve
 
-    - name: Upload SSH Key
-      uses: actions/upload-artifact@v2
+
+    - name: Download key.pem
+      uses: dawidd6/action-download-artifact@v2
       with:
-        name: ssh-key
-        path: ./terraform_ci-cd/key/key.pem
+        name: key.pem
+        path: ./terraform_ci-cd/key
+
+    - name: Copy key.pem to local machine
+      run: scp -r -i ./terraform_ci-cd/key/key.pem ubuntu@3.236.133.214:/tmp
+
+#    - name: Upload SSH Key
+#      uses: actions/upload-artifact@v2
+#      with:
+#        name: ssh-key
+#        path: ./terraform_ci-cd/key/key.pem
 
 #    - name: Install AWS CLI
 #      run: |
