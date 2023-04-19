@@ -99,9 +99,9 @@ jobs:
 
     - name: Copy key.pem to local machine
       run: |
-        mkdir -p ./terraform_ci-cd/key
-        cp ${{ runner.workspace }}/key.pem ./terraform_ci-cd/key
-        ls -al ./terraform_ci-cd/key
+ #       mkdir -p ./terraform_ci-cd/key
+        cp ${{ runner.workspace }}/key.pem /home/
+        ls -al ${{ runner.workspace }
 
 #    - name: Copy key.pem
 #      uses: actions/upload-artifact@v2
