@@ -101,7 +101,7 @@ jobs:
       run: |
  #       mkdir -p ./terraform_ci-cd/key
         cp ${{ runner.workspace }}/key.pem /home/
-        ls -al ${{ runner.workspace }
+        ls -al ${{ runner.workspace }}
 
 #    - name: Copy key.pem
 #      uses: actions/upload-artifact@v2
