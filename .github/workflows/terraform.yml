@@ -98,10 +98,10 @@ jobs:
       run: terraform apply -auto-approve
 
     - name: Copy key.pem to local machine
-      run: |
+      run:
  #       mkdir -p ./terraform_ci-cd/key
-        cp ${{ runner.workspace }}/key.pem /home/
-        ls -al ${{ runner.workspace }}
+#        cp ${{ runner.workspace }}/key.pem /home/
+         ls -al ${{ runner.workspace }}
 
 #    - name: Copy key.pem
 #      uses: actions/upload-artifact@v2
